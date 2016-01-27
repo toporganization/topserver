@@ -82,8 +82,24 @@ DATABASES = {
         'USER': 'root',
         'HOST': '',
         'PORT': '',
+    },
+    'spider': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'topspider',
+        'USER': 'root',
+        'HOST': '',
+        'PORT': '',
     }
 }
+
+# use multi-database in django
+DATABASE_ROUTERS = ['topserver.database_router.DatabaseAppsRouter']
+DATABASE_APPS_MAPPING = {
+        # example:
+        #'app_name':'database_name',
+        'admin': 'default',
+        'api': 'default',
+        }
 
 
 # Password validation
